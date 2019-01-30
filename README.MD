@@ -5,7 +5,7 @@ Due: 2/14/2019
 Points: 200
 
 ## Purpose
-Create a UIViewbased iOS app using common UIKit controls.
+Create a UIView based iOS app using common UIKit controls.
 
 ## Program structure
 Create an iOS Single View App.  Use the storyboard to design your UI.  At a minimum, you will have a model class for Player.  A model class should have no references or dependencies to the UI.
