@@ -11,7 +11,7 @@ Create a UIView based iOS app using common UIKit controls.
 Create an iOS Single View App.  Use the storyboard to design your UI.  At a minimum, you will have a model class for Player.  A model class should have no references or dependencies to the UI.
 
 ## Problems
-Create an iOS app that allows two human players to play Pig by passing the phone back and forth.
+Create an iOS app that allows two human players to play Pig by passing the phone back and forth or one human play against the computer.
 
 1. (50 points) Create a UI in Interface builder.  The layout is up to you.  No warnings in interface builder.  Each warning is a 1 point deduction.  Use autolayout constraints.  Your layout should render properly on iPhone 4s and above (including iPads).  Each form factor your UI does not layout in properly is a 5 point deduction.  You do not need to support landscape.  Feel free to be creative with you layout and colors.
 On the screen, show:
