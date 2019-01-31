@@ -24,7 +24,7 @@ On the screen, show:
   * A table to show the history
   
 
-2. (100 points) Implement the game logic.  You will need at least one model class: Player.  A model class must not have any reference to the UI.  A model only stores data and logic.  In your view controller, implement an updateUI function.  All UI updates should happen from this function.
+2. (80 points) Implement the game logic.  You will need at least one model class: Player.  A model class must not have any reference to the UI.  A model only stores data and logic.  In your view controller, implement an updateUI function.  All UI updates should happen from this function.
   * Roll button rolls the dice creating a random number between 1 and 6.  If 1 is rolled, the player pigs out and it is the next players turn.
   * If 2 - 6 is rolled the value is added to the player's turn score.  Be sure to update the player's turn score on screen.  The player can now choose to roll again or pass.
   * If the Pass button is touched, the player's turn score is added to thier total and it is the next players turn.
@@ -37,6 +37,7 @@ On the screen, show:
  * At a minimum record each dice roll and a players decision to Roll or Pass
 
 
- 4. (20 points) Extra credit
- * Implement the option to play against the computer.
+ 4. (20 points) Add the ability to play against the computer.
+ * Add a way to the UI to switch back and forth from Player 2 to Computer player
+ * Implement some basic AI for the computer play the game.  Feel free to use the same method you used in our class room competition. 
 
