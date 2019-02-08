@@ -12,6 +12,7 @@
 		3FB0B3F8220A210F0051CE58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FB0B3F7220A210F0051CE58 /* Assets.xcassets */; };
 		3FB0B3FB220A210F0051CE58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FB0B3F9220A210F0051CE58 /* LaunchScreen.storyboard */; };
 		3FB0B406220A21DE0051CE58 /* PigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB0B405220A21DE0051CE58 /* PigViewController.swift */; };
+		3FBBBB93220E4397004C80C7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBBBB92220E4397004C80C7 /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		3FB0B3FA220A210F0051CE58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FB0B3FC220A210F0051CE58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FB0B405220A21DE0051CE58 /* PigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PigViewController.swift; sourceTree = "<group>"; };
+		3FBBBB92220E4397004C80C7 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,20 +56,13 @@
 		3FB0B3EF220A210E0051CE58 /* assignment 3 */ = {
 			isa = PBXGroup;
 			children = (
+				3FBBBB91220E437E004C80C7 /* Models */,
 				3FB0B404220A21640051CE58 /* Support FIles */,
 				3FB0B403220A215B0051CE58 /* Views */,
-				3FB0B402220A21550051CE58 /* Model */,
 				3FB0B3F4220A210E0051CE58 /* Main.storyboard */,
 				3FB0B3FC220A210F0051CE58 /* Info.plist */,
 			);
 			path = "assignment 3";
-			sourceTree = "<group>";
-		};
-		3FB0B402220A21550051CE58 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		3FB0B403220A215B0051CE58 /* Views */ = {
@@ -86,6 +81,14 @@
 				3FB0B3F7220A210F0051CE58 /* Assets.xcassets */,
 			);
 			path = "Support FIles";
+			sourceTree = "<group>";
+		};
+		3FBBBB91220E437E004C80C7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3FBBBB92220E4397004C80C7 /* Player.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FB0B3F1220A210E0051CE58 /* AppDelegate.swift in Sources */,
+				3FBBBB93220E4397004C80C7 /* Player.swift in Sources */,
 				3FB0B406220A21DE0051CE58 /* PigViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
