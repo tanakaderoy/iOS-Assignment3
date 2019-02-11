@@ -17,13 +17,12 @@ class PigViewController: UIViewController {
     @IBOutlet weak var labelDiceValue: UILabel!
     @IBOutlet weak var labelPlayer2: UILabel!
     @IBOutlet weak var labelPlayer2Total: UILabel!
-    //change dicevalue to turn total
-    //create dicevalue
-    //change roll and pass to buttons
+    
     
     var p1CurrentTot = 0
     var p2CurrentTot = 0
-    var diceValue = 1
+    var activePlayer = 1
+    var diceValue = 0
     var turnTotal = 0
     var passTouched = false
     
@@ -50,21 +49,46 @@ class PigViewController: UIViewController {
         
         diceValue = Int.random(in: 1...6)
         turnTotal = turnTotal + diceValue
-        if passTouched == true{
-            labelPlayer1Total.text = "\(turnTotal)"
-        }
+        
         if diceValue == 1{
             
             diceValue = 0
             turnTotal = 0
+            if activePlayer == 1{
+                
+                activePlayer = 2
+                
+            }else{
+                
+                activePlayer = 1
+        }
         }
         
         updateUI()
+    
     }
     
     
     @IBAction func passBtnTouched(_ sender: Any) {
         passTouched = true
+        if activePlayer == 1{
+            if passTouched == true{
+                p1CurrentTot = p1CurrentTot + turnTotal
+                turnTotal = 0
+                passTouched = false
+            }
+            activePlayer = 2
+            
+        }else{
+            if passTouched == true{
+                p2CurrentTot = p2CurrentTot + turnTotal
+                turnTotal = 0
+                passTouched = false
+            }
+            activePlayer = 1
+        }
+        
+        
         updateUI()
     }
     
