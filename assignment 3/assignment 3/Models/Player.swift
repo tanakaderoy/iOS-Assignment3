@@ -11,25 +11,14 @@ import Foundation
 class Player{
     var currentTotal = 0
     var turnTotal = 0
-    var activePlayer = 1
-    var goalScore = 100
-    func finishTurn() {
-        currentTotal += turnTotal
-        turnTotal = 0
-        if activePlayer == 1{
-            activePlayer = 2
-            
-        }else{
-            activePlayer = 1
-        }
+    var activePlayer = ""
+    
+    init(currentTotal: Int, turnTotal: Int, activePlayer: String) {
+        self.currentTotal = currentTotal
+        self.turnTotal = turnTotal
+        self.activePlayer = activePlayer
     }
-    func pigOut() {
-        turnTotal = 0
-    }
-    func isWinner() -> Bool {
-        return currentTotal >= goalScore
-        
-    }
+   
     
 }
 

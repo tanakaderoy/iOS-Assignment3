@@ -18,6 +18,9 @@ class PigViewController: UIViewController {
     @IBOutlet weak var labelPlayer2: UILabel!
     @IBOutlet weak var labelPlayer2Total: UILabel!
     
+    var p1 = Player.init(currentTotal: 0, turnTotal: 0, activePlayer: "Player 11")
+    var p2 = Player.init(currentTotal: 0, turnTotal: 0, activePlayer: "Player 22")
+    
     
     var p1CurrentTot = 0
     var p2CurrentTot = 0
@@ -29,6 +32,8 @@ class PigViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        labelPlayer1.text = p1.activePlayer
+        labelPlayer2.text = p2.activePlayer
         updateUI()
         
 
@@ -57,10 +62,12 @@ class PigViewController: UIViewController {
             if activePlayer == 1{
                 
                 activePlayer = 2
+                turnTotal = 0
                 
             }else{
                 
                 activePlayer = 1
+                turnTotal = 0
         }
         }
         
