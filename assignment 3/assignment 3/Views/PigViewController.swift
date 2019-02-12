@@ -28,6 +28,7 @@ class PigViewController: UIViewController {
     var diceValue = 0
     var turnTotal = 0
     var passTouched = false
+    let goalTotal = 100
     
     
     override func viewDidLoad() {
@@ -40,6 +41,28 @@ class PigViewController: UIViewController {
         // Do any additional setup after loading the view.
         
     }
+    func highlightPlayer(){
+        if activePlayer == 1{
+            labelPlayer1.textColor = UIColor.red
+            labelPlayer2.textColor = UIColor.black
+        }else{
+            labelPlayer2.textColor = UIColor.red
+            labelPlayer1.textColor = UIColor.black
+        }
+        
+    }
+    func isWinner(){
+        if p1.currentTotal >= goalTotal{
+            labelPlayer1.text = "Winner"
+            
+        }else if p2.currentTotal >= goalTotal{
+            labelPlayer2.text = "Winner"
+            
+            
+        }else{
+        
+        }
+    }
     func updateUI() {
         
         
@@ -47,6 +70,8 @@ class PigViewController: UIViewController {
         labelPlayer2Total.text = "\(p2CurrentTot)"
         labelDiceValue.text = "\(diceValue)"
         labelTurnTotal.text = "\(turnTotal)"
+        highlightPlayer()
+        isWinner()
         
     }
     
