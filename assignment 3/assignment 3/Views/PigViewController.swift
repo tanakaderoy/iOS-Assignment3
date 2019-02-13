@@ -113,6 +113,7 @@ class PigViewController: UIViewController {
     @IBAction func newGame(_ sender: UIButton) {
         
         newGame()
+        history = [String]()
         history.append("Somebody Quit and Started a New Game")
         updateUI()
         
