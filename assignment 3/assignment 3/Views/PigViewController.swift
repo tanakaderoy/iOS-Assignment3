@@ -18,6 +18,7 @@ class PigViewController: UIViewController {
     @IBOutlet weak var labelPlayer2: UILabel!
     @IBOutlet weak var labelPlayer2Total: UILabel!
     
+    @IBOutlet weak var diceImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     var p1 = Player.init(currentTotal: 0, turnTotal: 0, activePlayer: "Player 1")
     var p2 = Player.init(currentTotal: 0, turnTotal: 0, activePlayer: "Player 2")
@@ -29,7 +30,7 @@ class PigViewController: UIViewController {
     var diceValue = 0
     var turnTotal = 0
     var passTouched = false
-    let goalTotal = 25
+    let goalTotal = 100
     var history = [String]()
     
     
@@ -100,9 +101,13 @@ class PigViewController: UIViewController {
         labelPlayer2Total.text = "\(p2CurrentTot)"
         labelDiceValue.text = "\(diceValue)"
         labelTurnTotal.text = "\(turnTotal)"
-        tableView.reloadData()
+        
+        
+        
         highlightPlayer()
         isWinner()
+        tableView.reloadData()
+        scrollToBottom()
         
     }
     @IBAction func newGame(_ sender: UIButton) {
@@ -116,6 +121,7 @@ class PigViewController: UIViewController {
     @IBAction func rollBtnTouched(_ sender: Any) {
         
         diceValue = Int.random(in: 1...6)
+        diceImageView.image = UIImage(named: "dice\(diceValue)")
         turnTotal = turnTotal + diceValue
         
         if diceValue == 1{
@@ -187,8 +193,20 @@ extension PigViewController: UITableViewDataSource, UITableViewDelegate {
         let historyItem = history[indexPath.row]
         cell.textLabel?.text = historyItem
         cell.contentView.backgroundColor = UIColor.gray
+        
         return cell
     }
+    func scrollToBottom() {
+        let numberOfSections = self.tableView.numberOfSections
+        let numberOfRows = self.tableView.numberOfRows(inSection: numberOfSections-1)
+        if numberOfRows > 0 {
+            let indexPath = IndexPath(row: numberOfRows-1, section: (numberOfSections-1))
+            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            
+        }
+    }
+    
+    
     
     
     
