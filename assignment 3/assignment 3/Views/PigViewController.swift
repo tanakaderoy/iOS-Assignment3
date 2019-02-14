@@ -22,6 +22,7 @@ class PigViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var p1 = Player.init(currentTotal: 0, turnTotal: 0, activePlayer: "Player 1")
     var p2 = Player.init(currentTotal: 0, turnTotal: 0, activePlayer: "Player 2")
+    //var cpu = Player.init(currentTotal: 0, turnTotal: 0, activePlayer: "CPU Player)
     
     
     var p1CurrentTot = 0
@@ -38,12 +39,33 @@ class PigViewController: UIViewController {
         super.viewDidLoad()
         labelPlayer1.text = p1.activePlayer
         labelPlayer2.text = p2.activePlayer
+        history.append("Try to reach \(goalTotal) before the other Player")
+        history.append("if you roll a 1 its oink oink 🐖 ")
         updateUI()
         
 
         // Do any additional setup after loading the view.
         
     }
+    //Update the UI
+    func updateUI() {
+        
+        
+        labelPlayer1Total.text = "\(p1CurrentTot)"
+        labelPlayer2Total.text = "\(p2CurrentTot)"
+        labelDiceValue.text = "\(diceValue)"
+        labelTurnTotal.text = "\(turnTotal)"
+        
+        
+        
+        highlightPlayer()
+        isWinner()
+        tableView.reloadData()
+        scrollToBottom()
+        
+    }
+    
+    // highlight active player
     func highlightPlayer(){
         if activePlayer == 1{
             labelPlayer1.textColor = UIColor.red
@@ -54,6 +76,7 @@ class PigViewController: UIViewController {
         }
         
     }
+    //check who won and display it
     func isWinner(){
         if p1CurrentTot >= goalTotal{
             history.append("\(p1.activePlayer) Has won \(p1CurrentTot) beats \(goalTotal)")
@@ -73,6 +96,7 @@ class PigViewController: UIViewController {
         }
         
     }
+    //Sart a new game with reseted values
     func newGame(){
         
 
@@ -86,6 +110,8 @@ class PigViewController: UIViewController {
         
         
     }
+    
+    //Alert to let you know who won the Game
     func alert (title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
@@ -94,39 +120,36 @@ class PigViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
-    func updateUI() {
-        
-        
-        labelPlayer1Total.text = "\(p1CurrentTot)"
-        labelPlayer2Total.text = "\(p2CurrentTot)"
-        labelDiceValue.text = "\(diceValue)"
-        labelTurnTotal.text = "\(turnTotal)"
-        
-        
-        
-        highlightPlayer()
-        isWinner()
-        tableView.reloadData()
-        scrollToBottom()
-        
-    }
+    //Cpu Game button is also wired up to just start a blank game
     @IBAction func newGame(_ sender: UIButton) {
         
         newGame()
         history = [String]()
         history.append("Somebody Quit and Started a New Game")
+        history.append("Try to reach \(goalTotal) before the other Player")
+        history.append("if you roll a 1 its oink oink 🐖 ")
         updateUI()
         
     }
+    /*
+     it just keeps pressing I cant get it to press just once
+     func pressRoll(){
+        self.rollBtnTouched()
+     }
+     
+     func pressPass(){
+     self.passBtnTouched
+     }
+     */
     
-    @IBAction func rollBtnTouched(_ sender: Any) {
+    @IBAction func rollBtnTouched(_ sender: Any/*? = nil*/) {
         
         diceValue = Int.random(in: 1...6)
         diceImageView.image = UIImage(named: "dice\(diceValue)")
         turnTotal = turnTotal + diceValue
         
         if diceValue == 1{
-            history.append("Player \(activePlayer) has rolled \(diceValue) PIGOUT")
+            history.append("Player \(activePlayer) has rolled \(diceValue) PIGOUT🐖")
             
             
             if activePlayer == 1{
@@ -150,7 +173,7 @@ class PigViewController: UIViewController {
     }
     
     
-    @IBAction func passBtnTouched(_ sender: Any) {
+    @IBAction func passBtnTouched(_ sender: Any/*? = nil //necessarr for buttonPress func */) {
         passTouched = true
         if activePlayer == 1{
             if passTouched == true{
